@@ -10,58 +10,60 @@
 
     <properties>
         <scala.version>2.11.8</scala.version>
-        <spark.version>2.2.0</spark.version>
+        <scala.binary.version>2.11</scala.binary.version>
+        <spark.version>2.4.3</spark.version>
         <hbase.version>1.2.0</hbase.version>
-        <cdh.version>5.13.1</cdh.version>
+<!--        <cdh.version>5.13.1</cdh.version>-->
         <encoding>UTF-8</encoding>
     </properties>
 
     <dependencies>
          <!-- scala -->
         <dependency>
-        <groupId>org.scala-lang</groupId>
-        <artifactId>scala-library</artifactId>
-        <version>${scala.version}</version>
-        <scope>compile</scope>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+            <version>${scala.version}</version>
+            <scope>provided</scope>
         </dependency>
+
         <dependency>
-        <groupId>org.scala-lang</groupId>
-        <artifactId>scala-compiler</artifactId>
-        <version>${scala.version}</version>
-        <scope>compile</scope>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-compiler</artifactId>
+            <version>${scala.version}</version>
+            <scope>provided</scope>
         </dependency>
 
         <!-- spark -->
         <dependency>
             <groupId>org.apache.spark</groupId>
-            <artifactId>spark-core_2.11</artifactId>
+            <artifactId>spark-core_${scala.binary.version}</artifactId>
             <version>${spark.version}</version>
-            <scope>compile</scope>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.spark</groupId>
-            <artifactId>spark-sql_2.11</artifactId>
+            <artifactId>spark-sql_${scala.binary.version}</artifactId>
             <version>${spark.version}</version>
-            <scope>compile</scope>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.spark</groupId>
-            <artifactId>spark-sql_2.11</artifactId>
+            <artifactId>spark-sql_${scala.binary.version}</artifactId>
             <version>${spark.version}</version>
-            <scope>compile</scope>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.spark</groupId>
-            <artifactId>spark-streaming_2.11</artifactId>
+            <artifactId>spark-streaming_${scala.binary.version}</artifactId>
             <version>${spark.version}</version>
-            <scope>compile</scope>
+            <scope>provided</scope>
         </dependency>
 
         <!-- mongo-spark-connector -->
         <dependency>
             <groupId>org.mongodb.spark</groupId>
-            <artifactId>mongo-spark-connector_2.11</artifactId>
-            <version>${spark.version}</version>
+            <artifactId>mongo-spark-connector_${scala.binary.version}</artifactId>
+            <version>2.4.2</version>
             <exclusions>
                 <exclusion>
                     <artifactId>scala-library</artifactId>
@@ -70,12 +72,6 @@
             </exclusions>
         </dependency>
 
-        <!-- hbase spark -->
-        <dependency>
-            <groupId>org.apache.hbase</groupId>
-            <artifactId>hbase-spark</artifactId>
-            <version>${hbase.version}-cdh${cdh.version}</version>
-        </dependency>
     </dependencies>
 
     <build>
